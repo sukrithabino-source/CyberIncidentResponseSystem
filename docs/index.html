@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Incident Response System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">CYBERSECURITY OPERATIONS</p>
+            <h1>Cyber Incident Response</h1>
+            <p>Detect. Prioritize. Respond.</p>
+        </div>
+        <div class="status"><span></span> SYSTEM READY</div>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">01 / INTAKE</p>
+                    <h2>Report an Incident</h2>
+                </div>
+            </div>
+
+            <form id="incidentForm">
+                <label for="title">Incident title</label>
+                <input id="title" name="title" required
+                       placeholder="e.g. Suspicious login detected">
+
+                <label for="severity">Severity level</label>
+                <select id="severity" name="severity" required>
+                    <option value="CRITICAL">Critical</option>
+                    <option value="HIGH">High</option>
+                    <option value="MEDIUM" selected>Medium</option>
+                    <option value="LOW">Low</option>
+                </select>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="3"
+                          placeholder="Describe the incident..."></textarea>
+
+                <button type="submit">+ Add Incident</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">02 / PRIORITY QUEUE</p>
+                    <h2>Incident Queue</h2>
+                </div>
+                <button id="refresh" class="secondary" type="button">
+                    Refresh
+                </button>
+            </div>
+
+            <p class="hint">Critical → High → Medium → Low</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Incident</th>
+                            <th>Severity</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="incidentRows"></tbody>
+                </table>
+            </div>
+
+            <button id="process" type="button">
+                Process Highest-Priority Incident
+            </button>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">03 / RESPONSE</p>
+                    <h2>Response Actions</h2>
+                </div>
+            </div>
+
+            <form id="actionForm">
+                <label for="actionText">Record a response action</label>
+                <input id="actionText" name="actionText" required
+                       placeholder="e.g. Notified the security team">
+                <button type="submit">Save Action</button>
+            </form>
+
+            <div class="section-heading history-heading">
+                <h3>Action History (Stack)</h3>
+                <button id="undo" class="secondary" type="button">
+                    Undo Latest
+                </button>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Response action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="actionRows"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="bottom-bar">
+            <p id="notice" role="status">Welcome! Report an incident to begin.</p>
+            <button id="reset" class="danger" type="button">
+                Reset System
+            </button>
+        </section>
+
+        <footer>
+            <p>DATA STRUCTURES MINI PROJECT · JAVA · PRIORITYQUEUE · STACK</p>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
